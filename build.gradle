@@ -49,6 +49,9 @@ dependencies {
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
 
 	implementation 'mysql:mysql-connector-java'
+
+	implementation 'org.apache.commons:commons-lang3:3.13.0' // 최신 버전 기준 (2024년)
+
 }
 
 tasks.named('test') {
