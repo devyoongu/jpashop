@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jpabook.jpashop.service.MemberServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-07-05T07:12:34" hostname="ygui-MacBookPro.local" time="0.08">
+  <properties/>
+  <testcase name="중복회원예외" classname="jpabook.jpashop.service.MemberServiceTest" time="0.069"/>
+  <testcase name="회원가입" classname="jpabook.jpashop.service.MemberServiceTest" time="0.01"/>
+  <system-out><![CDATA[2022-07-05 16:12:34.446  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@59b43e35 testClass = MemberServiceTest, testInstance = jpabook.jpashop.service.MemberServiceTest@66297b63, testMethod = 중복회원예외@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1d7f2719 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@237c8718]; rollback [true]
+2022-07-05 16:12:34.504 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.member_id as member_i1_4_,
+        member0_.city as city2_4_,
+        member0_.street as street3_4_,
+        member0_.zipcode as zipcode4_4_,
+        member0_.name as name5_4_ 
+    from
+        member member0_ 
+    where
+        member0_.name=?
+Hibernate: 
+    select
+        member0_.member_id as member_i1_4_,
+        member0_.city as city2_4_,
+        member0_.street as street3_4_,
+        member0_.zipcode as zipcode4_4_,
+        member0_.name as name5_4_ 
+    from
+        member member0_ 
+    where
+        member0_.name=?
+2022-07-05 16:12:34.505 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [kim]
+2022-07-05 16:12:34.505  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154505 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+select member0_.member_id as member_i1_4_, member0_.city as city2_4_, member0_.street as street3_4_, member0_.zipcode as zipcode4_4_, member0_.name as name5_4_ from member member0_ where member0_.name=?
+select member0_.member_id as member_i1_4_, member0_.city as city2_4_, member0_.street as street3_4_, member0_.zipcode as zipcode4_4_, member0_.name as name5_4_ from member member0_ where member0_.name='kim';
+2022-07-05 16:12:34.507 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.507  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154507 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.507 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (city, street, zipcode, name, member_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        member
+        (city, street, zipcode, name, member_id) 
+    values
+        (?, ?, ?, ?, ?)
+2022-07-05 16:12:34.507 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-07-05 16:12:34.507 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2022-07-05 16:12:34.507 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2022-07-05 16:12:34.507 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [kim]
+2022-07-05 16:12:34.508 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [15]
+2022-07-05 16:12:34.508  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154508 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+insert into member (city, street, zipcode, name, member_id) values (?, ?, ?, ?, ?)
+insert into member (city, street, zipcode, name, member_id) values (NULL, NULL, NULL, 'kim', 15);
+2022-07-05 16:12:34.508 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.member_id as member_i1_4_,
+        member0_.city as city2_4_,
+        member0_.street as street3_4_,
+        member0_.zipcode as zipcode4_4_,
+        member0_.name as name5_4_ 
+    from
+        member member0_ 
+    where
+        member0_.name=?
+Hibernate: 
+    select
+        member0_.member_id as member_i1_4_,
+        member0_.city as city2_4_,
+        member0_.street as street3_4_,
+        member0_.zipcode as zipcode4_4_,
+        member0_.name as name5_4_ 
+    from
+        member member0_ 
+    where
+        member0_.name=?
+2022-07-05 16:12:34.508 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [kim]
+2022-07-05 16:12:34.508  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154508 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+select member0_.member_id as member_i1_4_, member0_.city as city2_4_, member0_.street as street3_4_, member0_.zipcode as zipcode4_4_, member0_.name as name5_4_ from member member0_ where member0_.name=?
+select member0_.member_id as member_i1_4_, member0_.city as city2_4_, member0_.street as street3_4_, member0_.zipcode as zipcode4_4_, member0_.name as name5_4_ from member member0_ where member0_.name='kim';
+2022-07-05 16:12:34.509 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([member_i1_4_] : [BIGINT]) - [15]
+2022-07-05 16:12:34.512  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154512 | took 0ms | rollback | connection 5| url jdbc:h2:mem:test
+
+;
+2022-07-05 16:12:34.513  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@59b43e35 testClass = MemberServiceTest, testInstance = jpabook.jpashop.service.MemberServiceTest@66297b63, testMethod = 중복회원예외@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1d7f2719 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2022-07-05 16:12:34.514  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@59b43e35 testClass = MemberServiceTest, testInstance = jpabook.jpashop.service.MemberServiceTest@6b61a4b0, testMethod = 회원가입@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1d7f2719 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@237c8718]; rollback [false]
+2022-07-05 16:12:34.515 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.member_id as member_i1_4_,
+        member0_.city as city2_4_,
+        member0_.street as street3_4_,
+        member0_.zipcode as zipcode4_4_,
+        member0_.name as name5_4_ 
+    from
+        member member0_ 
+    where
+        member0_.name=?
+Hibernate: 
+    select
+        member0_.member_id as member_i1_4_,
+        member0_.city as city2_4_,
+        member0_.street as street3_4_,
+        member0_.zipcode as zipcode4_4_,
+        member0_.name as name5_4_ 
+    from
+        member member0_ 
+    where
+        member0_.name=?
+2022-07-05 16:12:34.516 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Kim]
+2022-07-05 16:12:34.517  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154517 | took 0ms | statement | connection 6| url jdbc:h2:mem:test
+select member0_.member_id as member_i1_4_, member0_.city as city2_4_, member0_.street as street3_4_, member0_.zipcode as zipcode4_4_, member0_.name as name5_4_ from member member0_ where member0_.name=?
+select member0_.member_id as member_i1_4_, member0_.city as city2_4_, member0_.street as street3_4_, member0_.zipcode as zipcode4_4_, member0_.name as name5_4_ from member member0_ where member0_.name='Kim';
+2022-07-05 16:12:34.517 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.517  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154517 | took 0ms | statement | connection 6| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.523 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (city, street, zipcode, name, member_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        member
+        (city, street, zipcode, name, member_id) 
+    values
+        (?, ?, ?, ?, ?)
+2022-07-05 16:12:34.524 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-07-05 16:12:34.524 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2022-07-05 16:12:34.524 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2022-07-05 16:12:34.524 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Kim]
+2022-07-05 16:12:34.524 TRACE 42548 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [16]
+2022-07-05 16:12:34.524  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154524 | took 0ms | statement | connection 6| url jdbc:h2:mem:test
+insert into member (city, street, zipcode, name, member_id) values (?, ?, ?, ?, ?)
+insert into member (city, street, zipcode, name, member_id) values (NULL, NULL, NULL, 'Kim', 16);
+2022-07-05 16:12:34.524  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154524 | took 0ms | commit | connection 6| url jdbc:h2:mem:test
+
+;
+2022-07-05 16:12:34.524  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Committed transaction for test: [DefaultTestContext@59b43e35 testClass = MemberServiceTest, testInstance = jpabook.jpashop.service.MemberServiceTest@6b61a4b0, testMethod = 회원가입@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1d7f2719 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

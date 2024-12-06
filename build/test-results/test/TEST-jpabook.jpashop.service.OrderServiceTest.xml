@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jpabook.jpashop.service.OrderServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-07-05T07:12:34" hostname="ygui-MacBookPro.local" time="0.021">
+  <properties/>
+  <testcase name="상품주문_재고수량초과" classname="jpabook.jpashop.service.OrderServiceTest" time="0.007"/>
+  <testcase name="상품주문" classname="jpabook.jpashop.service.OrderServiceTest" time="0.007"/>
+  <testcase name="주문취소" classname="jpabook.jpashop.service.OrderServiceTest" time="0.006"/>
+  <system-out><![CDATA[2022-07-05 16:12:34.527  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@285b63eb testClass = OrderServiceTest, testInstance = jpabook.jpashop.service.OrderServiceTest@5a983f8a, testMethod = 상품주문_재고수량초과@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1fa8a4f7 testClass = OrderServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@237c8718]; rollback [true]
+2022-07-05 16:12:34.528 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.529  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154529 | took 0ms | statement | connection 7| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.529 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.529  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154529 | took 0ms | statement | connection 7| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.533  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154533 | took 0ms | rollback | connection 7| url jdbc:h2:mem:test
+
+;
+2022-07-05 16:12:34.533  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@285b63eb testClass = OrderServiceTest, testInstance = jpabook.jpashop.service.OrderServiceTest@5a983f8a, testMethod = 상품주문_재고수량초과@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1fa8a4f7 testClass = OrderServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2022-07-05 16:12:34.534  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@285b63eb testClass = OrderServiceTest, testInstance = jpabook.jpashop.service.OrderServiceTest@6a2b6031, testMethod = 상품주문@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1fa8a4f7 testClass = OrderServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@237c8718]; rollback [true]
+2022-07-05 16:12:34.536 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.536  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154536 | took 0ms | statement | connection 8| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.536 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.536  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154536 | took 0ms | statement | connection 8| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.538 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.539  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154539 | took 0ms | statement | connection 8| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.539 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.539  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154539 | took 0ms | statement | connection 8| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.539 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.539  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154539 | took 0ms | statement | connection 8| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.541  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154541 | took 0ms | rollback | connection 8| url jdbc:h2:mem:test
+
+;
+2022-07-05 16:12:34.541  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@285b63eb testClass = OrderServiceTest, testInstance = jpabook.jpashop.service.OrderServiceTest@6a2b6031, testMethod = 상품주문@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1fa8a4f7 testClass = OrderServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2022-07-05 16:12:34.542  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@285b63eb testClass = OrderServiceTest, testInstance = jpabook.jpashop.service.OrderServiceTest@5069a91b, testMethod = 주문취소@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1fa8a4f7 testClass = OrderServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@237c8718]; rollback [true]
+2022-07-05 16:12:34.543 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.543  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154543 | took 0ms | statement | connection 9| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.544 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.544  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154544 | took 0ms | statement | connection 9| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.544 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.545  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154545 | took 0ms | statement | connection 9| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.545 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.545  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154545 | took 0ms | statement | connection 9| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.545 DEBUG 42548 --- [    Test worker] org.hibernate.SQL                        : 
+    call next value for hibernate_sequence
+Hibernate: 
+    call next value for hibernate_sequence
+2022-07-05 16:12:34.545  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154545 | took 0ms | statement | connection 9| url jdbc:h2:mem:test
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+2022-07-05 16:12:34.546  INFO 42548 --- [    Test worker] p6spy                                    : #1657005154546 | took 0ms | rollback | connection 9| url jdbc:h2:mem:test
+
+;
+2022-07-05 16:12:34.547  INFO 42548 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@285b63eb testClass = OrderServiceTest, testInstance = jpabook.jpashop.service.OrderServiceTest@5069a91b, testMethod = 주문취소@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1fa8a4f7 testClass = OrderServiceTest, locations = '{}', classes = '{class jpabook.jpashop.JpashopApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@57ac5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a4ca3f6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@b6b1987, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66b7550d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@77a98a6a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@a8ef162], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

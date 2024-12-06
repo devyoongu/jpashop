@@ -1,0 +1,24 @@
+#server:
+#  port: 80801
+#  shutdown: graceful
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 100 #in 절을 사용하겠다는 설정이며 in 절에 들어갈 갯수 설정
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+
