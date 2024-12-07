@@ -25,6 +25,3 @@ out/
 
 ### QueryDSL ###
 **/generated
-
-.gradle/
-build/

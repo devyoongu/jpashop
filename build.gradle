@@ -1,7 +1,7 @@
 buildscript {
-   ext {
-      queryDslVersion = "5.0.0"
-   }
+	ext {
+		queryDslVersion = "5.0.0"
+	}
 }
 
 plugins {
@@ -14,7 +14,7 @@ plugins {
 
 group = 'jpabook'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 configurations {
 	compileOnly {
@@ -24,6 +24,13 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven {
+		url = uri("https://maven.pkg.github.com/devyoongu/yoongu-security")
+		credentials {
+			username = project.findProperty("gpr.user") ?: System.getenv("USER_NAME")
+			password = project.findProperty("gpr.key") ?: System.getenv("ACCESS_TOKEN")
+		}
+	}
 }
 
 dependencies {
@@ -41,7 +48,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	//junit4 추가
 	testImplementation("org.junit.vintage:junit-vintage-engine") {
-	exclude group: "org.hamcrest", module: "hamcrest-core"
+		exclude group: "org.hamcrest", module: "hamcrest-core"
 	}
 
 	//querydsl 추가
@@ -52,6 +59,7 @@ dependencies {
 
 	implementation 'org.apache.commons:commons-lang3:3.13.0' // 최신 버전 기준 (2024년)
 
+	implementation 'com.yoongu.security:yoongu-security:1.0.0'
 }
 
 tasks.named('test') {
@@ -62,19 +70,19 @@ tasks.named('test') {
 def querydslDir = "$buildDir/generated/querydsl"
 
 querydsl {
-   jpa = true
-   querydslSourcesDir = querydslDir
+	jpa = true
+	querydslSourcesDir = querydslDir
 }
 sourceSets {
-   main.java.srcDir querydslDir
+	main.java.srcDir querydslDir
 }
 compileQuerydsl{
-   options.annotationProcessorPath = configurations.querydsl
+	options.annotationProcessorPath = configurations.querydsl
 }
 configurations {
-   compileOnly {
-      extendsFrom annotationProcessor
-   }
-   querydsl.extendsFrom compileClasspath
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	querydsl.extendsFrom compileClasspath
 }
 //querydsl 추가 끝
