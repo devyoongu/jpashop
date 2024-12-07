@@ -1,145 +1,31 @@
-server:
-  shutdown: graceful
-
-logging:
-  level:
-    com:
-      posicube:
-        robi: info
-    org:
-      springframework:
-        jdbc:
-          core:
-            JdbcTemplate: info
-            StatementCreatorUtils: info
-      hibernate:
-        SQL: info
-      type:
-        descriptor:
-          sql:
-            BasicBinder: info
+#server:
+#  port: 80801
+#  shutdown: graceful
 
 spring:
-  application:
-    name: os-samsungcard-chubb-daegu-prod
-  profiles: prod
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://swarm_db_0:3306/robi_common?serverTimezone=Asia/Seoul&useUnicode=yes&characterEncoding=UTF-8
-    username: posicube
-    password: B67;cM[L/e~:Rd[{;ydL%YE*[6jTq&8C
+    url: jdbc:mysql://localhost:3306/test?useUnicode=yes&characterEncoding=UTF-8&useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: root
+    password: password
     hikari:
       leak-detection-threshold: 1000
+  #  datasource:
+  #    url: jdbc:h2:tcp://localhost/~/jpashop
+  #    username: sa
+  #    password:
+  #    driver-class-name: org.h2.Driver
+
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto: update
-    database: mysql
-  flyway:
-    enabled: false
-    baseline-on-migrate: true
-  redis:
-    host: cache
-    port: 6379
-  rabbitmq:
-    host: swarm_outbound-rabbit-mq
-    port: 5672
-    publisher-returns: true
-    publisher-confirm-type: correlated
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+#        show_sql: true
+#        default_batch_fetch_size: 100 #in 절을 사용하겠다는 설정이며 in 절에 들어갈 갯수 설정
 
-file:
-  storage:
-    wav:
-      local:
-        location: uploads/call #임시
-    chat: /record/chat/
-    call: /record/call/
-  call-list:
-    unread:
-      path: /app/uploads/scheduler/campaign/unread
-    success:
-      path: /app/uploads/scheduler/campaign/finished
-    error:
-      path: /app/uploads/scheduler/campaign/error
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
 
-gateway:
-  url: http://gateway-server
-
-agent:
-  config-customer: gov_guro
-  branch-id: afe73141-bbc3-44ca-8bbe-c6215740f564
-  path:
-    spec: agent/kube/agent_kube_deployment_schema-prod.meta
-    constant: agent/kube/agent_spec_constant.properties
-    static: agent/kube/agent_param_static.properties
-
-
-
-kube:
-  config:
-    path: cluster/kube-cluster.yml
-  namespace: gov-guro-v3-prod
-
-outbound:
-  service-env:
-    ALL:
-      queue-property:
-        name: core-queue
-        capacity: 50
-
-#call-history:
-#  kafka:
-#    type: rest
-#    rest-proxy-base-url: https://backoffice-prod.posicube.com/kafka/
-#    consume:
-#      ack:
-#        topic: os-samsungcard-chubb-daegu.call-history.ack
-#        group-name: os-samsungcard-chubb-daegu
-#    produce:
-#      log:
-#        topic: backoffice.call-history.log
-#        file-server-url: https://os-samsungcard-chubb-daegu-prod-static.posicube.com/static/
-
-jwt:
-  secret_key: ENC(DNuUJ6/bGkQkOuIwmHiHTtFQ8MNnYzo1ZfXBwFOLyHr5uSpWw2AT7A==)
-
-jasypt:
-  encryptor:
-    password: ${JASYPT_PASSWORD}
-
-
-grpc:
-  client:
-    grpcServer:
-      address: 'static://gateway-server-headless:9090'
-      negotiationtype: plaintext
-
-image:
-  save:
-    path: /chat/static/media/
-
-qna:
-  file:
-    path: /uploads/qnamodel
-
-kubernetes:
-  namespace: robit-prod
-  qna-deployment: chatbot-qna-deploy
-  config-path: cluster/kube-cluster.yml
-
-cron:
-  scenario: 0 0/25 * * * *
-
-backoffice:
-  url: https://backoffice-prod.posicube.com/api/
-
-#authentication:
-#  type: LDAP
-#  active:
-#    directory:
-#      url: ldap://192.168.17.16
-#      rdn: OU=Users,OU=CDM_SDT,OU=BU,OU=Chubb,OU=HANILN,DC=telebus,DC=local
-#      service:
-#        id: CN=ai-admin,OU=Service Accounts,OU=IT,OU=Chubb,OU=HANILN,DC=telebus,DC=local
-#        domain: '@telebus.local'
-#        password: Welcome123

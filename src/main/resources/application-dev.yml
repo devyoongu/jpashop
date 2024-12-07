@@ -1,84 +1,31 @@
+#server:
+#  port: 80801
+#  shutdown: graceful
+
 spring:
-  application:
-    name: os-samsungcard-chubb-daegu-dev
-  profiles: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-master:3306/robi_common?useUnicode=yes&characterEncoding=UTF-8&useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
-    username: posicube
-    password: B67;cM[L/e~:Rd[{;ydL%YE*[6jTq&8C
+    url: jdbc:mysql://localhost:3306/test?useUnicode=yes&characterEncoding=UTF-8&useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: root
+    password: password
     hikari:
       leak-detection-threshold: 1000
+  #  datasource:
+  #    url: jdbc:h2:tcp://localhost/~/jpashop
+  #    username: sa
+  #    password:
+  #    driver-class-name: org.h2.Driver
+
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto: update
-    database: mysql
-  flyway:
-    enabled: false
-  rabbitmq:
-    host: rabbit
-    port: 5672
-    publisher-returns: true
-    publisher-confirm-type: correlated
-  redis:
-    host: backend-redis
-    port: 6379
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+#        show_sql: true
+#        default_batch_fetch_size: 100 #in 절을 사용하겠다는 설정이며 in 절에 들어갈 갯수 설정
 
-file:
-  storage:
-    wav:
-      local:
-        location: uploads/call #임시
-    chat: /record/chat/
-    call: /record/call/
-  call-list:
-    unread:
-      path: /app/uploads/scheduler/campaign/unread
-    success:
-      path: /app/uploads/scheduler/campaign/finished
-    error:
-      path: /app/uploads/scheduler/campaign/error
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
 
-gateway:
-  url: http://gateway-server
-
-agent:
-  path:
-    spec: agent/kube/agent_kube_deployment_schema-staging.meta
-    constant: agent/kube/agent_spec_constant.properties
-    static: agent/kube/agent_param_static.properties
-
-kube:
-  config:
-    path: cluster/kube-cluster.yml
-  namespace: os-samsungcard-chubb-daegu-dev
-
-outbound:
-  service-env:
-    WARM_UP:
-      queue-property:
-        name: warm-up-queue
-        capacity: 50
-  default:
-    call-type: WARM_UP
-
-call-history:
-  kafka:
-    type: rest
-    rest-proxy-base-url: http://kafka-rest-svc.backoffice-dev.svc.cluster.local/
-    consume:
-      ack:
-        topic: os-samsungcard-chubb-daegu.call-history.ack
-        group-name: os-samsungcard-chubb-daegu
-    produce:
-      log:
-        topic: backoffice.call-history.log
-        file-server-url: https://os-samsungcard-chubb-daegu-dev.posicube.com/static/
-
-jwt:
-  secret_key: ENC(DNuUJ6/bGkQkOuIwmHiHTtFQ8MNnYzo1ZfXBwFOLyHr5uSpWw2AT7A==)
-
-jasypt:
-  encryptor:
-    password: ${JASYPT_PASSWORD}
